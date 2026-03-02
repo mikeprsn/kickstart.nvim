@@ -814,6 +814,9 @@ require('lazy').setup({
         },
         opts = {},
       },
+      {
+        'giuxtaposition/blink-cmp-copilot',
+      },
       'folke/lazydev.nvim',
     },
     --- @module 'blink.cmp'
@@ -860,9 +863,15 @@ require('lazy').setup({
       },
 
       sources = {
-        default = { 'lsp', 'path', 'snippets', 'lazydev' },
+        default = { 'lsp', 'path', 'snippets', 'lazydev', 'copilot' },
         providers = {
           lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
+          copilot = {
+            name = 'copilot',
+            module = 'blink-cmp-copilot',
+            score_offset = 100,
+            async = true,
+          },
         },
       },
 
@@ -985,6 +994,40 @@ require('lazy').setup({
   -- require 'kickstart.plugins.autopairs',
   -- require 'kickstart.plugins.neo-tree',
   -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
+  {
+    'zbirenbaum/copilot.lua',
+    cmd = 'Copilot',
+    event = 'InsertEnter',
+    config = function()
+      require('copilot').setup {
+        suggestion = { enabled = false },
+        panel = { enabled = false },
+      }
+    end,
+  },
+  {
+    'giuxtaposition/blink-cmp-copilot',
+  },
+  {
+    'sindrets/diffview.nvim',
+  },
+  --  {
+  --    'zbirenbaum/copilot-cmp',
+  --    event = 'InsertEnter',
+  --    config = function()
+  --      require('copilot_cmp').setup()
+  --    end,
+  --    dependencies = {
+  --      'zbirenbaum/copilot.lua',
+  --      cmd = 'Copilot',
+  --      config = function()
+  --        require('copilot').setup {
+  --          suggestion = { enabled = false },
+  --          panel = { enabled = false },
+  --        }
+  --      end,
+  --    },
+  --  },
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
