@@ -1094,5 +1094,11 @@ require('lazy').setup({
   },
 })
 
+-- Keymaps for 'delete' + 'insert'. The original 's' has disappeared,
+-- and the MiniSurround plugin has keymaps that starts with 's', which causes a delay when using just 's'.
+-- Hence, we change the keymap for 'delete' + 'insert' to 'ss' instead of 's'.
+vim.keymap.set('n', 'ss', 'dli', { desc = 'Delete character and enter insert mode' })
+vim.keymap.set('v', 'ss', 'di', { desc = 'Delete marked text and enter insert mode' })
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
