@@ -896,20 +896,23 @@ require('lazy').setup({
     -- change the command in the config to whatever the name of that colorscheme is.
     --
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
-    'folke/tokyonight.nvim',
+    'catppuccin/nvim',
+    name = 'catppuccin-mocha',
     priority = 1000, -- Make sure to load this before all the other start plugins.
     config = function()
       ---@diagnostic disable-next-line: missing-fields
-      require('tokyonight').setup {
+      require('catppuccin').setup {
+        flavour = 'mocha',
         styles = {
-          comments = { italic = false }, -- Disable italics in comments
+          comments = { 'italic' }, -- Disable italics in comments??
+          conditionsals = { 'italic' },
         },
       }
 
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'tokyonight-night'
+      vim.cmd.colorscheme 'catppuccin'
     end,
   },
 
@@ -977,6 +980,36 @@ require('lazy').setup({
     --    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
     --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
     --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
+  },
+  {
+    'catppuccin/nvim',
+    name = 'catppuccin',
+    priority = 1000,
+  },
+  {
+    'sainnhe/sonokai',
+    name = 'sonokai',
+    priority = 1000,
+  },
+  {
+    'sainnhe/sonokai',
+    name = 'sonokai',
+    priority = 1000,
+  },
+  {
+    'shaunsingh/nord.nvim',
+    name = 'nord',
+    priority = 1000,
+  },
+  {
+    'sainnhe/everforest',
+    name = 'everforest',
+    priority = 1000,
+  },
+  {
+    'rebelot/kanagawa.nvim',
+    name = 'kanagawa',
+    priority = 1000,
   },
 
   -- The following comments only work if you have downloaded the kickstart repo, not just copy pasted the
